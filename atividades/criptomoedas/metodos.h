@@ -49,7 +49,7 @@ int conectarComBase(string nomeArquivo, Cripto lista[], int n)
 
             lista[indice].nome = vetorLinha[0];
             lista[indice].sigla = vetorLinha[1];
-            lista[indice].valor = stof(vetorLinha[2]); // Mudança de stoi para stof
+            lista[indice].valor = stof(vetorLinha[2]); 
 
             indice++;
         }
