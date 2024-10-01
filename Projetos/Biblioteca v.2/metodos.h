@@ -53,15 +53,12 @@ int solicitarQuantidadeNomes()
     return qntLivros; // Retorna a quantidade valida
 }
 
-void acrescentarLivros(vector<string> &titulo, vector<string> &autor, vector<string> &ISBN, vector<int> &copias, int qntLivros)
+void acrescentarLivros(vector<livros> &livros, int qntLivros)
 {
     for (int i = 0; i < qntLivros; i++)
     {
-        string tempTitulo;
-        string tempAutor;
-        string tempISBN;
+        livros tempLivro;
         char op;
-        int tempCopias;
         bool cadastrado = false;
 
         cout << "Digite o titulo do Livro " << i + 1 << " : " << endl;
@@ -69,9 +66,9 @@ void acrescentarLivros(vector<string> &titulo, vector<string> &autor, vector<str
         getline(cin, tempTitulo);
 
         // Verificar se o livro já foi cadastrado
-        for (size_t j = 0; j < titulo.size(); j++)
+        for (size_t j = 0; j < livros.size(); j++)
         {
-            if (tempTitulo == titulo[j])
+            if (tempLivro.titulo == livros[j].titulo)
             {
                 cadastrado = true;
                 int soma;
@@ -84,7 +81,7 @@ void acrescentarLivros(vector<string> &titulo, vector<string> &autor, vector<str
                 case 's':
                     cout << "Quantas copias deseja acrescentar? " << endl;
                     cin >> soma;
-                    copias[j] += soma;
+                    livros[j].copias += soma;
                     cout << "Quantidade de copias acrescentadas!" << endl;
                     break;
                 case 'N':
